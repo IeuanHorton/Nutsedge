@@ -10,7 +10,11 @@ class Nutsedge {
 	{
 		int index = phrase.find(badWord);
 		int length = badWord.length();
-		
+	        
+	        if(length > phrase.length()){
+			return false;
+		}	
+
 		phrase.erase(index, length);
 		phrase.insert(index, goodWord);
 
@@ -28,5 +32,12 @@ int main(){
 	nutsedge.ReplaceWord(phrase, badword, goodword); 
 
 	std::cout << phrase << std::endl;
+
+	phrase = "toa";
+
+	std::cout << nutsedge.ReplaceWord(phrase, badword, goodword) << std::endl;
+
+	std::cout << phrase << std::endl;
+
 	return 0;
 }
