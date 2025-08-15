@@ -6,17 +6,17 @@ using namespace std;
 class Nutsedge {
 
 	public:
-	bool ReplaceWord(std::string& phrase, std::string& badWord, std::string& goodWord)
+	bool AutoReplace(std::string& text, std::string& target, std::string& replacement)
 	{
-		int index = phrase.find(badWord);
-		int length = badWord.length();
+		int index = text.find(target);
+		int length = target.length();
 	        
-	        if(length > phrase.length()){
+	        if(length > text.length()){
 			return false;
 		}	
 
-		phrase.erase(index, length);
-		phrase.insert(index, goodWord);
+		tezt.erase(index, length);
+		tezt.insert(index, replacement);
 
 		return true;
 	}	
@@ -26,16 +26,16 @@ int main(){
 	Nutsedge nutsedge;
 
 	std::string phrase = "The toad prince";
-	std::string badword = "toad";
-	std::string goodword = "frog";
+	std::string target = "toad";
+	std::string replacement = "frog";
 	
-	nutsedge.ReplaceWord(phrase, badword, goodword); 
+	nutsedge.AutoReplace(phrase, target, replacement); 
 
 	std::cout << phrase << std::endl;
 
 	phrase = "toa";
 
-	std::cout << nutsedge.ReplaceWord(phrase, badword, goodword) << std::endl;
+	std::cout << nutsedge.AutoReplace(phrase, target, replacement) << std::endl;
 
 	std::cout << phrase << std::endl;
 
