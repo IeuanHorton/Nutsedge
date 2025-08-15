@@ -9,14 +9,19 @@ class Nutsedge {
 	bool AutoReplace(std::string& text, std::string& target, std::string& replacement)
 	{
 		int index = text.find(target);
+
+		if(index == std::string::npos){
+			return false;
+		}
+
 		int length = target.length();
 	        
 	        if(length > text.length()){
 			return false;
 		}	
 
-		tezt.erase(index, length);
-		tezt.insert(index, replacement);
+		text.erase(index, length);
+		text.insert(index, replacement);
 
 		return true;
 	}	
@@ -25,6 +30,7 @@ class Nutsedge {
 int main(){
 	Nutsedge nutsedge;
 
+	//Temp code for testing
 	std::string phrase = "The toad prince";
 	std::string target = "toad";
 	std::string replacement = "frog";
