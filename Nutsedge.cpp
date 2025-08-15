@@ -10,16 +10,13 @@ class Nutsedge {
 	{
 		int index = text.find(target);
 
+		//Checking if the target is inside the text
 		if(index == std::string::npos){
 			return false;
 		}
 
 		int length = target.length();
 	        
-	        if(length > text.length()){
-			return false;
-		}	
-
 		text.erase(index, length);
 		text.insert(index, replacement);
 
@@ -35,7 +32,7 @@ int main(){
 	std::string target = "toad";
 	std::string replacement = "frog";
 	
-	nutsedge.AutoReplace(phrase, target, replacement); 
+	std::cout << nutsedge.AutoReplace(phrase, target, replacement) << std::endl; 
 
 	std::cout << phrase << std::endl;
 
